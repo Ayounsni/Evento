@@ -1,0 +1,5 @@
+.image{
+    background-image: url('../image/ayoub.jpg');
+    background-size: cover; /* Pour couvrir tout l'écran */
+    background-repeat: no-repeat; 
+}
