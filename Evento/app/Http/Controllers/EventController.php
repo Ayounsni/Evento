@@ -20,7 +20,7 @@ class EventController extends Controller
             'date'=> 'required|date|after:now',
             'categorie'=> 'required',
             'nombre'=> 'required|regex:/^-?\d+$/',
-            'lieu'=> 'required|min:5',
+            'lieu'=> 'required|min:3',
             'description'=>'required|min:20',
             'validation'=>'required',
         ],[
@@ -52,7 +52,7 @@ class EventController extends Controller
             'date'=> 'required|date|after:now',
             'categorie'=> 'required',
             'nombre'=> 'required|regex:/^-?\d+$/',
-            'lieu'=> 'required|min:5',
+            'lieu'=> 'required|min:3',
             'description'=>'required|min:20',
 
         ],[
@@ -93,6 +93,34 @@ class EventController extends Controller
         ]);
     
         return redirect()->route('events')->with( 'bloc', "L'événement a été rejeter"); 
+    }
+    public function indexx(Request $request){
+
+        $categories = Categorie::all();
+        $categorieId = $request->categorie;
+        $cat = Categorie::where('id',$categorieId)->first();
+        $termeRecherche = $request->search ;
+        if($termeRecherche){
+
+            $evenements = Evenement::where('titre', 'like', '%' . $termeRecherche . '%')->paginate(100);
+            return view('user/home',compact('evenements','categories'));
+        }
+        elseif($categorieId){
+            if($categorieId =='all'){
+                $evenements = Evenement::where('status', 'confirmer')->paginate(4);
+                return view('user/home',compact('evenements','categories'));
+            }else{
+            $evenements = Evenement::where('id_categorie', $categorieId)->where('status', 'confirmer')->paginate(100);
+            return view('user/home',compact('evenements','categories','cat'));
+        }
+        }else{
+        $evenements = Evenement::where('status', 'confirmer')->paginate(4);
+        return view('user/home',compact('evenements','categories'));
+    }
+    }
+    public function show(Evenement $event){
+
+        return view('user/evenement',compact('event'));
     }
     
 }

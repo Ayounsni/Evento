@@ -33,7 +33,7 @@
                               <div class="mt-4">
                                   <x-input-label for="type" :value="__('Catégorie')" />
                                   <select name="categorie" id="langue" :value="old('categorie')"  class="form-select mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                                      <option value="">Sélectionner un type</option>
+                                      <option value="{{old('categorie')}}">Sélectionner un type</option>
                                       @foreach($categories as $categorie)
                                       <option value="{{$categorie->id}}" class="form-option">{{$categorie->nom}}</option>
                                       @endforeach

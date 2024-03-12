@@ -14,6 +14,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="icon" href="{{ asset('image/logg.png') }}" type="image/png">
  
     <title>Evento</title>
 </head>

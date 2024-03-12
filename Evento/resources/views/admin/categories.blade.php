@@ -15,7 +15,7 @@
                   {{ session('bloc') }}
              </div>
              @endif
-                             <a href="" class="self-end px-3">
+                             <a href="{{route('addCat')}}" class="self-end px-3">
                     <button type="submit" class="text-white mb-3 bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none mt-5 focus:ring-orange-200 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <i class="bi bi-plus-lg"></i> Ajouter Catégorie</button></a>
                 <div class="relative overflow-x-auto px-2">
@@ -40,14 +40,14 @@
                                     <p class="fs-6">{{$categorie->nom}}</p>
                             </th>
                 <td class="px-6 py-4 text-center">
-                    <a href="">      
-                         <button type="submit" class="text-white bg-green-500 hover:bg-green-700  focus:ring-4 focus:outline-none  focus:ring-red-200 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a href="{{route('editCat',$categorie->id)}}">      
+                         <button type="submit" class="text-white bg-green-500 hover:bg-green-700  focus:ring-4 focus:outline-none  focus:ring-green-200 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <i class="bi bi-pencil"></i></button></a>
                 </td>
 
                 <td class="px-6 py-4 flex justify-center align-items-center gap-2 ">
                    
-                       <form method="POST"  action="">
+                       <form method="POST"  action="{{route('deleteCat',$categorie->id)}}">
                            @method('DELETE')
                            @csrf
                                <button type="submit" class="text-white bg-red-500 hover:bg-red-700  focus:ring-4 focus:outline-none  focus:ring-red-200 font-medium rounded-lg text-sm px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

@@ -1,4 +1,3 @@
-
 <x-layout>
     @include('profile.partials.nav') 
     <div class=" flex  justify-center  my-9  px-2 ">
@@ -20,10 +19,10 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3 rounded-s-lg text-center">
-                                    Nom du créateur
+                                   Titre d'événement
                                  </th>
                                 <th scope="col" class="px-6 py-3 text-center">
-                                     Titre d'événement
+                                    Nom du créateur
                                 </th>
                                 <th scope="col" class="px-6 py-3 rounded-e-lg text-center">
                                     Date d'événement 
@@ -37,13 +36,10 @@
                   <tbody>
                        <tr class="bg-white dark:bg-gray-800">
                              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
-                                <div class="d-flex justify-content-center gap-3 align-items-center w-auto ">
-                                    <img src="{{ asset('image/profile.jpg') }}" alt="logo" class="w-11 rounded-full" >
-                                    <p class="fs-6">{{$evenement->user->name}}</p>
-                                </div>
+                                {{$evenement->titre}}
                             </th>
                 <td class="px-6 py-4 text-center">
-                    {{$evenement->titre}}
+                                    <p class="fs-6">{{$evenement->user->name}}</p>  
                 </td>
                 <td class="px-6 py-4 text-center">
                     {{$evenement->date}}

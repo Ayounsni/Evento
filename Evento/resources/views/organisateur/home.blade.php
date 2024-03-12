@@ -57,11 +57,11 @@
                                   <div class="d-flex flex-column w-50">
                                      <p class="fw-medium"><i class="bi bi-card-checklist"></i> Statut </p>
                                      @if($evenement->status == 'en attente')
-                                     <p class="fw-medium mt-1 bg-orange-500 px-2 w-fit text-gray-50 rounded-full">{{$evenement->status}}</p>
+                                     <p class="fw-medium mt-1 bg-orange-500 px-2 w-fit text-gray-50 rounded-full"><i class="bi bi-hourglass-split"></i> {{$evenement->status}}</p>
                                      @elseif($evenement->status == 'rejeter')
-                                      <p class="fw-medium mt-1 bg-red-600 px-2 w-fit text-gray-50 rounded-full">{{$evenement->status}}</p>
+                                      <p class="fw-medium mt-1 bg-red-600 px-2 w-fit text-gray-50 rounded-full"><i class="bi bi-x-circle"></i> {{$evenement->status}}</p>
                                      @else
-                                     <p class="fw-medium mt-1 bg-green-600 px-2 w-fit text-gray-50 rounded-full">{{$evenement->status}}</p>
+                                     <p class="fw-medium mt-1 bg-green-600 px-2 w-fit text-gray-50 rounded-full"><i class="bi bi-check-circle"></i> {{$evenement->status}}</p>
                                     @endif
                                   </div>
                               </div>

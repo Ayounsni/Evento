@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Evenement;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function user(){
 
-        return view('user/home');
-    }
     public function index(){
         $users=User::where('role','user')->get();
         $organisateurs=User::where('role','organisateur')->get(); 
@@ -31,6 +29,18 @@ class UserController extends Controller
         ]);
     
         return redirect()->route('users')->with('bloc', 'Le compte a été suspendu'); 
+    }
+
+    public function test(){
+        $evenements = Evenement::all();
+
+        foreach($evenements as $evenement){
+        $evenement->reservations;
+
+        dd($evenement->reservations);
+    }
+        
+        
     }
 
     

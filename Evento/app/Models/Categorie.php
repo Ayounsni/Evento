@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Categorie extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+        'id_user',
+    ];
 
     public function evenements()
     {

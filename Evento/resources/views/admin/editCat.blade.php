@@ -6,7 +6,8 @@
               <div class="card-body bg-light ">
                   
               <div class = "container">
-                  <form method="POST" action="{{route('addCatt')}}" >
+                  <form method="POST" action="{{route('editCatt',$categorie->id)}}" >
+                      @method('PUT')
                       @csrf
                       <div class="controls">
                           <div class="row ">
@@ -15,7 +16,7 @@
                               <div class="col-md-12">
                                 <div class="mt-4">
                                     <x-input-label for="titre" :value="__('Nom du Catégorie')" />
-                                    <x-text-input  class="block mt-1 w-full " type="text" name="nom" :value="old('nom')"  />
+                                    <x-text-input  class="block mt-1 w-full " type="text" name="nom" :value="$categorie->nom"  />
                                     <x-input-error :messages="$errors->get('nom')" class="mt-2" />
                                 </div>
                               </div>
@@ -23,7 +24,7 @@
                           <div class="row">
                               <div class="col-md-12">
                                   <div class="d-flex justify-content-end">
-                                      <input type="submit" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none mt-3 focus:ring-orange-200 font-medium rounded-lg text-sm px-3 py-2 text-center" value="Ajouter Catégorie">
+                                      <input type="submit" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none mt-3 focus:ring-orange-200 font-medium rounded-lg text-sm px-3 py-2 text-center" value="Modifier Catégorie">
                                   </div>
                               </div>
                           </div>

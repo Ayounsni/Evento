@@ -11,13 +11,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Reservation extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id_user',
+        'id_evenement',
+        'status'
+    ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id_user');
     }
     public function evenement()
     {
-        return $this->belongsTo(Evenement::class);
+        return $this->belongsTo(Evenement::class,'id_evenement');
     }
 }
